@@ -1,0 +1,71 @@
+/*2351050 信05 杨瑞晨*/
+#include <iostream>
+using namespace std;
+
+int min(int a, int b, int c = INT_MAX, int d = INT_MAX)
+{
+	if (b < a)
+		a = b;
+	if (c < a)
+		a = c;
+	if (d < a)
+		a = d;
+	return a;
+}
+
+int main()
+{
+	int n, a, b, c, d;
+	while (1) {
+		cout << "请输入个数num及num个正整数：" << endl;
+		cin >> n;
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(INT_MAX, '\n');
+			continue;
+		}
+		if (n == 2) {
+			cin >> a >> b;
+			if (cin.fail() || a <= 0 || b <= 0) {
+				cin.clear();
+				cin.ignore(INT_MAX, '\n');
+				continue;
+			}
+			else
+				break;
+		}
+		else if (n == 3) {
+			cin >> a >> b >> c;
+			if (cin.fail() || a <= 0 || b <= 0 || c <= 0) {
+				cin.clear();
+				cin.ignore(INT_MAX, '\n');
+				continue;
+			}
+			else
+				break;
+		}
+		else if (n == 4) {
+			cin >> a >> b >> c >> d;
+			if (cin.fail() || a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+				cin.clear();
+				cin.ignore(INT_MAX, '\n');
+				continue;
+			}
+			else
+				break;
+		}
+		else {
+			cout << "个数输入错误" << endl;
+			return 0;
+		}
+	}
+
+	if (n == 2)
+		cout << "min=" << min(a, b) << endl;
+	else if (n == 3)
+		cout << "min=" << min(a, b, c) << endl;
+	else if (n == 4)
+		cout << "min=" << min(a, b, c, d) << endl;
+
+	return 0;
+}
